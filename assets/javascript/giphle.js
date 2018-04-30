@@ -1,10 +1,11 @@
 var sugestions = [
-  "sicuri",
+  "capybara",
   "jaguar",
   "toucan",
-  "honey badger",
-  "t rex",
-  "dolphin"
+  "sloth",
+  "caiman",
+  "tapir"
+  
 ];
 var lastButton = 0;
 var api = "https://api.giphy.com/v1/gifs/search?q=";
@@ -74,10 +75,10 @@ $(document).ready(function() {
           "' status='still' src-still='" +
           response[i].images.original_still.url +
           "' src-animated='" +
-          response[i].images.fixed_height_downsampled.url +
-          "'class='gif' ><br> <a download href='" +
+          response[i].images.fixed_height.url +
+          "'class='gif' ><br> <a target='_blank' href='" +
           response[i].images.original.url +
-          "' >Download</a> <p class='gifTittle'><strong>Tittle:</strong><br>" +
+          "' >Original Size</a> <p class='gifTittle'><strong>Tittle:</strong><br>" +
           (response[i].title.charAt(0).toUpperCase() + response[i].title.slice(1)) +
           "</p> </div>"
       );
