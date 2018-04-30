@@ -65,17 +65,21 @@ $(document).ready(function() {
       $(".results").append(
         "<div class='result' style='background-color: " +
           alternateColors() +
-          "'><p class='rating'>Rating: " +
+          "'><p class='rating'><strong>Rating: </strong>" +
           response[i].rating.toUpperCase() +
           "</p><img src='" +
           response[i].images.original_still.url +
           "' alt='" +
-          response[0].title +
+          response[i].title +
           "' status='still' src-still='" +
           response[i].images.original_still.url +
           "' src-animated='" +
           response[i].images.fixed_height_downsampled.url +
-          "'class='gif' ></div>"
+          "'class='gif' ><br> <a download href='" +
+          response[i].images.original.url +
+          "' >Download</a> <p class='gifTittle'><strong>Tittle:</strong><br>" +
+          (response[i].title.charAt(0).toUpperCase() + response[i].title.slice(1)) +
+          "</p> </div>"
       );
     }
     playPause();
@@ -103,8 +107,6 @@ $(document).ready(function() {
   // Changes src and status attributes in image when clicked
   function playPause() {
     $(".gif").on("click", function() {
-      
-
       var status = $(this).attr("status");
 
       if (status === "still") {
@@ -176,11 +178,14 @@ $(document).ready(function() {
   }
 });
 
-console.log(`%c ~~~~~~~~~~~~~~~~~~~~~~~~~
+console.log(
+  `%c ~~~~~~~~~~~~~~~~~~~~~~~~~
 | Did you lose something? |
  ~~~~~~~~~~~~~~~~~~~~~~~~~
         \\   ^__^
          \\  (oo)\\_______
             (__)\\       )\\/\\
                 ||----w |
-                ||     || Made by Luis Suarez.`, "font-family:monospace");
+                ||     || Made by Luis Suarez.`,
+  "font-family:monospace"
+);

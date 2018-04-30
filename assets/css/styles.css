@@ -181,3 +181,7 @@ body {
     transform: rotateY(720deg);
   }
 }
+
+.gifTittle{
+  width: 350px;
+}
